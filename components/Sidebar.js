@@ -15,10 +15,9 @@ const Sidebar = () => {
     <Flex
       w="300px"
       h="100vh"
-      boxShadow="md"
       rounded="md"
       borderEnd="1px solid"
-      borderColor="gray.200"
+      borderColor="gray.100"
       direction="column"
     >
       <Flex
@@ -37,7 +36,6 @@ const Sidebar = () => {
 
         <IconButton
           variant="outline"
-          boxShadow="md"
           size="md"
           isRound
           icon={<FiLogOut />}
@@ -48,7 +46,7 @@ const Sidebar = () => {
         colorScheme="purple"
         variant="outline"
         boxShadow="md"
-        rounded="xl"
+        rounded="3xl"
         m="5"
         p="4"
       >
@@ -63,6 +61,7 @@ const Sidebar = () => {
             display: "none",
           },
         }}
+        flex="1"
       >
         <Chat />
       </Flex>
