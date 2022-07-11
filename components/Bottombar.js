@@ -9,8 +9,11 @@ const Bottombar = ({ id, user }) => {
   const sendMessage = async (e) => {
     e.preventDefault();
 
+    const text = input;
+    setInput("");
+
     await addDoc(collection(db, `chats/${id}/messages`), {
-      text: input,
+      text,
       sender: user.email,
       timestamp: serverTimestamp(),
     });
