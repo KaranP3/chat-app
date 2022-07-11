@@ -4,14 +4,16 @@ import {
   Button,
   Center,
   Stack,
-  Heading,
-  Text,
   Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Head from "next/head";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { auth } from "../firebase.config";
 
 const Login = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
   return (
     <>
       <Head>
@@ -50,6 +52,7 @@ const Login = () => {
               variant="outline"
               boxShadow="md"
               rounded="xl"
+              onClick={() => signInWithGoogle("", { prompt: "select_account" })}
             >
               Sign in with Google
             </Button>
