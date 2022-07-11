@@ -1,7 +1,8 @@
-import { Avatar, Flex, IconButton, Text, Button } from "@chakra-ui/react";
+import { Avatar, AvatarBadge, Flex, IconButton, Text, Button } from "@chakra-ui/react";
 import { FiLogOut } from "react-icons/fi";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.config";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Chat = () => {
   return (
@@ -13,6 +14,10 @@ const Chat = () => {
 };
 
 const Sidebar = () => {
+  const [user] = useAuthState(auth);
+
+  console.log(user);
+
   return (
     <Flex
       w="300px"
@@ -32,8 +37,10 @@ const Sidebar = () => {
         p="3"
       >
         <Flex align="center">
-          <Avatar src="" marginEnd="3" />
-          <Text>Karan Pillai</Text>
+          <Avatar name={user.displayName} src={user.photoURL} marginEnd="3">
+            <AvatarBadge boxSize='1.25em' bg='green.500' />
+          </Avatar>
+          <Text>{user.displayName}</Text>
         </Flex>
 
         <IconButton
