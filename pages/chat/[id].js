@@ -18,7 +18,7 @@ import {
 } from "firebase/firestore";
 import { db, auth } from "../../firebase.config";
 import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/TopBar";
+import Topbar from "../../components/Topbar";
 import Bottombar from "../../components/Bottombar";
 import getOtherEmail from "../../utils/getOtherEmail";
 
