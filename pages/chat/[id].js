@@ -8,6 +8,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Sidebar from "../../components/Sidebar";
+import Head from "next/head";
 
 const Topbar = () => {
   return (
@@ -36,6 +37,10 @@ const BottomBar = () => {
 export default function Chat() {
   return (
     <Flex h="100vh">
+      <Head>
+        <title>Chat App</title>
+      </Head>
+
       <Sidebar />
 
       <Flex flex="1" direction="column">

@@ -1,5 +1,7 @@
 import { Avatar, Flex, IconButton, Text, Button } from "@chakra-ui/react";
 import { FiLogOut } from "react-icons/fi";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase.config";
 
 const Chat = () => {
   return (
@@ -39,7 +41,8 @@ const Sidebar = () => {
           size="md"
           isRound
           icon={<FiLogOut />}
-        ></IconButton>
+          onClick={() => signOut(auth)}
+        />
       </Flex>
 
       <Button
