@@ -1,4 +1,4 @@
-import { ChatIcon } from "@chakra-ui/icons";
+import { FiMessageSquare } from 'react-icons/fi';
 import {
   Box,
   Button,
@@ -6,9 +6,11 @@ import {
   Stack,
   Flex,
   useColorModeValue,
+  Icon,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+
 import { auth } from "../firebase.config";
 
 const Login = () => {
@@ -45,7 +47,7 @@ const Login = () => {
               rounded="3xl"
               boxShadow="md"
             >
-              <ChatIcon width="100px" h="100px" color="white"></ChatIcon>
+              <Icon width="100px" h="100px" color="white" as={FiMessageSquare}></Icon>
             </Box>
             <Button
               colorScheme="purple"
