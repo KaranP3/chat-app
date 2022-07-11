@@ -1,11 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import {
-  Avatar,
-  Button,
   Flex,
-  FormControl,
-  Heading,
-  Input,
   Text,
 } from "@chakra-ui/react";
 import Head from "next/head";
@@ -20,53 +15,13 @@ import {
   doc,
   query,
   orderBy,
-  addDoc,
-  serverTimestamp,
 } from "firebase/firestore";
 import { db, auth } from "../../firebase.config";
 import Sidebar from "../../components/Sidebar";
+import Topbar from "../../components/TopBar";
+import Bottombar from "../../components/Bottombar";
 import getOtherEmail from "../../utils/getOtherEmail";
 
-const Topbar = ({ email }) => {
-  return (
-    <Flex bg="gray.100" h="81px" w="100%" align="center" p="5">
-      <Avatar src="" marginEnd="3" />
-      <Heading size="md">{email}</Heading>
-    </Flex>
-  );
-};
-
-const BottomBar = ({ id, user }) => {
-  const [input, setInput] = useState();
-
-  const sendMessage = async (e) => {
-    e.preventDefault();
-
-    await addDoc(collection(db, `chats/${id}/messages`), {
-      text: input,
-      sender: user.email,
-      timestamp: serverTimestamp(),
-    });
-
-    setInput("");
-  };
-
-  return (
-    <FormControl p="3" boxShadow="3xl" onSubmit={sendMessage} as="form">
-      <Input
-        focusBorderColor="purple.400"
-        _placeholder={{ opacity: 0.4, color: "gray.500" }}
-        placeholder="type a message..."
-        autoComplete="off"
-        onChange={(e) => setInput(e.target.value)}
-        value={input}
-      />
-      <Button type="submit" hidden onClick={sendMessage}>
-        Submit
-      </Button>
-    </FormControl>
-  );
-};
 
 export default function Chat() {
   const [user] = useAuthState(auth);
@@ -145,7 +100,7 @@ export default function Chat() {
           <div ref={bottomOfChat}></div>
         </Flex>
 
-        <BottomBar id={id} user={user} />
+        <Bottombar id={id} user={user} />
       </Flex>
     </Flex>
   );
