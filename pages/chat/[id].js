@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 import Sidebar from "../../components/Sidebar";
 import Head from "next/head";
-import { useAuthState } from 'react-firebase-hooks/auth'
 
 const Topbar = () => {
   return (
